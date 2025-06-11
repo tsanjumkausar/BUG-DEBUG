@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate')%>
+
+<h2 style="color: black;">My Teams</h2>
+<hr />
+<div class="container d-flex flex-wrap">
+  <% for (let team of  myteams) {%>
+  <div class="card border-dark mb-3 mx-2" style="max-width: 18rem">
+    <div class="card-header">
+      <a
+        style="text-decoration: none; color: black; font-weight: bold"
+        href="/teams/<%= team._id %>/"
+        ><%= team.name %></a
+      >
+    </div>
+    <div class="card-body text-dark">
+      <p class="card-text">
+        <%= (team.description.length > 100) ?
+        team.description.substr(0, 99) + '&hellip;' :
+        team.description %>
+      </p>
+    </div>
+  </div>
+  <%} %>
+</div>
+<h2 style="color: black;">All Teams</h2>
+<hr />
+<div class="container d-flex flex-wrap">
+  <% for (let team of teams) {%>
+  <div class="card border-dark mb-3 mx-2" style="max-width: 18rem">
+    <div class="card-header">
+        <a
+        style="text-decoration: none; color: black; font-weight: bold"
+        href="/teams/<%= team._id %>/"
+        ><%= team.name %></a
+      ></div>
+    <div class="card-body text-dark">
+      </h5>
+      <p class="card-text">
+        <%= (team.description.length > 100) ?
+        team.description.substr(0, 99) + '&hellip;' :
+        team.description %>
+      </p>
+    </div>
+  </div>
+  <%} %>
+</div>
